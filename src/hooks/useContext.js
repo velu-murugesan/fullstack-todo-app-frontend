@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://backend-todo-app-8jr8.onrender.com";
+const baseURL = "https://todo-backend-sample.onrender.com";
 
 const getAllTodo = async (setToDo) => {
   try {
