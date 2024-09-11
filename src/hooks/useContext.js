@@ -4,7 +4,7 @@ const baseURL = "https://todo-backend-sample.onrender.com";
 
 const getAllTodo = async (setToDo) => {
   try {
-    await axios.get(baseURL).then(({ data }) => {
+    await axios.get(`${baseURL}/api`).then(({ data }) => {
       console.log("data is:" + data);
       setToDo(data);
     });
@@ -15,7 +15,7 @@ const getAllTodo = async (setToDo) => {
 
 const saveTodo = async (text, setText, setToDo) => {
   try {
-    await axios.post(`${baseURL}/save`, { text }).then((data) => {
+    await axios.post(`${baseURL}/api/save`, { text }).then((data) => {
       getAllTodo(setToDo);
       setText("");
       console.log(data);
@@ -28,7 +28,7 @@ const saveTodo = async (text, setText, setToDo) => {
 const updateTodo = async (text, setText, setIsUpdating, todoId, setTodo) => {
   try {
     await axios
-      .post(`${baseURL}/update`, { _id: todoId, text })
+      .post(`${baseURL}/api/update`, { _id: todoId, text })
       .then((data) => {
         setIsUpdating(false);
         setText("");
@@ -42,7 +42,7 @@ const updateTodo = async (text, setText, setIsUpdating, todoId, setTodo) => {
 
 const deleteTodo = async (todoId, setTodo) => {
   try {
-    await axios.post(`${baseURL}/delete`, { _id: todoId }).then((data) => {
+    await axios.post(`${baseURL}/api/delete`, { _id: todoId }).then((data) => {
       getAllTodo(setTodo);
       console.log(data);
     });

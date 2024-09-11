@@ -8,7 +8,7 @@ export default defineConfig({
     sourcemap: true,
     proxy: {
       "/api": {
-        target: "https://backend-todo-app-8jr8.onrender.com",
+        target: "https://todo-backend-sample.onrender.com",
       },
     },
   },
